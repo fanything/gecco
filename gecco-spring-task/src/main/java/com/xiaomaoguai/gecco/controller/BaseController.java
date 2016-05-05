@@ -7,7 +7,6 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion.User;
 import com.xiaomaoguai.gecco.common.StringEscapeEditor;
 
 
@@ -25,20 +24,6 @@ public class BaseController {
 		 * 防止XSS攻击
 		 */
 		binder.registerCustomEditor(String.class, new StringEscapeEditor(true, false));
-	}
-
-	/**
-	 * 获取当前登录用户对象
-	 * 
-	 * @return
-	 */
-	public User getCurrentUser() {
-		
-		return null;
-	}
-
-	public Long getCurrentUserId() {
-		return null;
 	}
 
 }
