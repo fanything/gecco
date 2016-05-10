@@ -10,6 +10,7 @@
 	<modules>
 		<module>gecco-spring-task</module>
 		<module>gecco-java-demo</module>
+		<module>gecco-test</module>
 	</modules>
 
 	<properties>
