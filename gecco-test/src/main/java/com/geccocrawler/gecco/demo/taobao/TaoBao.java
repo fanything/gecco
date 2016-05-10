@@ -55,7 +55,7 @@ public class TaoBao implements HtmlBean {
 		HttpGetRequest start = new HttpGetRequest(
 				"https://www.taobao.com/market/nvzhuang/index.php?spm=a21bo.50862.201867-main.2.tTaSrd");
 		// HttpGetRequest start = new
-		// HttpGetRequest("https://s.taobao.com/list?spm=a217f.7278617.a214d5w-static.2.NwPmeE&style=grid&seller_type=taobao&oeid=3587000&oeid=4561000&cps=yes&cat=51108009");
+	//	 HttpGetRequest("https://s.taobao.com/list?spm=a217f.7278617.a214d5w-static.2.NwPmeE&style=grid&seller_type=taobao&oeid=3587000&oeid=4561000&cps=yes&cat=51108009");
 		start.setCharset("GBK");
 		GeccoEngine.create().classpath("com.geccocrawler.gecco.demo.taobao")
 		// 开始抓取的页面地址

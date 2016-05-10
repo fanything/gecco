@@ -25,7 +25,7 @@ public class TaoBaoPipeline implements Pipeline<TaoBao> {
 				String listUrl = "https://s.taobao.com/list?data-key=s&data-value=60&ajax=true&_ksTS=1462789160341_524&callback=jsonp525&spm="
 				+ currRequest.getParameter("code") + StringUtils.substringAfter(url, "?");
 
-				//System.out.println(listUrl);
+			//	System.out.println(listUrl);
 
 			    SchedulerContext.into(currRequest.subRequest(listUrl));
 			}
