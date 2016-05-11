@@ -29,7 +29,6 @@ public class ProductList implements HtmlBean {
 	/**
 	 * 抓取列表项的详细内容，包括titile，价格，详情页地址等
 	 */
-	//@Ajax(url = "https://s.taobao.com/list?{param}")
 	@FieldRenderName(value="TbPricesFieldRender")
 	private List<ProductBrief> details;
 
