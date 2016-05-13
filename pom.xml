@@ -11,6 +11,7 @@
 		<module>gecco-spring-task</module>
 		<module>gecco-java-demo</module>
 		<module>gecco-test</module>
+		<module>httpclient-demo</module>
 	</modules>
 
 	<properties>
