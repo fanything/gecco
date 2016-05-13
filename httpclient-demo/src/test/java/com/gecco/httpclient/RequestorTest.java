@@ -20,7 +20,7 @@ public class RequestorTest {
 	@Before
 	public void testLogin() throws Exception {
 		Map<String, String> parameterMap = new HashMap<String, String>();
-		parameterMap.put("email", "1559018677@qq.com");
+		parameterMap.put("email", "XXXX@qq.com");
 		parameterMap.put("pwd", "3d7945f2c71687f0a12ac637acdf787bf23cf174");
 
 		requestor.doLogin(loginUrl, parameterMap);
