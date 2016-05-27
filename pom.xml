@@ -12,6 +12,8 @@
 		<module>gecco-java-demo</module>
 		<module>gecco-test</module>
 		<module>httpclient-demo</module>
+		<module>gecco-gov-test</module>
+		<module>gecco-nuomi</module>
 	</modules>
 
 	<properties>
