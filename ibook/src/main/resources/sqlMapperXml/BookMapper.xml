@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ibook.www.mapper.BookMapper" >
+
+  <resultMap id="BaseResultMap" type="com.ibook.www.model.Book" >
+    <id column="id" property="id"/>
+    <result column="name" property="name"/>
+    <result column="author" property="author"/>
+    <result column="create_time" property="createTime"/>
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, name, content, wcount, create_time
+  </sql>
+
+  <insert id="insert" parameterType="com.ibook.www.model.Book" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into n_book(id,name,author,create_time)
+    values (#{id},#{name},#{author},#{createTime})
+  </insert>
+</mapper>
