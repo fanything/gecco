@@ -14,7 +14,8 @@
 		<module>httpclient-demo</module>
 		<module>gecco-gov-test</module>
 		<module>gecco-nuomi</module>
-	</modules>
+        <module>ibook</module>
+    </modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

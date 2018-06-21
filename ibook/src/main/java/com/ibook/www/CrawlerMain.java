@@ -18,7 +18,7 @@ public class CrawlerMain implements ApplicationContextAware,InitializingBean {
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		PipelineFactory springPipelineFactory = (PipelineFactory)context.getBean("springPipelineFactory");
-		HttpGetRequest start = new HttpGetRequest("https://www.miaobige.com/read/15396/1/");
+		HttpGetRequest start = new HttpGetRequest("https://www.miaobige.com/shuku/");
 		start.setCharset("GBK");
 		GeccoEngine.create()
 			.classpath("com.ibook.www.crawler")

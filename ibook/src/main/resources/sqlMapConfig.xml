@@ -9,5 +9,7 @@
     <mappers>
         <mapper resource="sqlMapperXml/BookMapper.xml"/>
         <mapper resource="sqlMapperXml/NodeMapper.xml"/>
+        <mapper resource="sqlMapperXml/ChannelMapper.xml"/>
+        <mapper resource="sqlMapperXml/ClassifyMapper.xml"/>
     </mappers>
 </configuration>
