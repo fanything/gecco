@@ -1,9 +1,6 @@
 package com.ibook.www.crawler;
 
-import com.geccocrawler.gecco.annotation.Gecco;
-import com.geccocrawler.gecco.annotation.Html;
-import com.geccocrawler.gecco.annotation.HtmlField;
-import com.geccocrawler.gecco.annotation.RequestParameter;
+import com.geccocrawler.gecco.annotation.*;
 import com.geccocrawler.gecco.spider.HtmlBean;
 
 /**
@@ -13,7 +10,7 @@ import com.geccocrawler.gecco.spider.HtmlBean;
  * @Data : 2016年3月29日 下午3:59:19
  * @Version:V1.00
  */
-@Gecco(matchUrl = "https://www.miaobige.com/read/{bookId}/{id}.html", pipelines = { "consolePipeline", "nodePipeline" })
+@Gecco(matchUrl = "https://www.miaobige.com/read/{bookId}/{id}.html",timeout = 10000, pipelines = { "consolePipeline", "nodePipeline" })
 public class NodePage implements HtmlBean {
 
 	private static final long serialVersionUID = 1L;
@@ -35,6 +32,22 @@ public class NodePage implements HtmlBean {
 	@Html
 	@HtmlField(cssPath = ".title > span:eq(2)")
 	private String count;
+
+	@Href
+	@HtmlField(cssPath = ".jump > a:eq(0)")
+	private String before;
+
+	@Href
+	@HtmlField(cssPath = ".jump > a:eq(4)")
+	private String next;
+
+	@Attr("content")
+	@HtmlField(cssPath = "meta[name='keywords']")
+	private String keywords;
+
+	@Attr("content")
+	@HtmlField(cssPath = "meta[name='description']")
+	private String intro;
 
 
 	public String getCount() {
@@ -75,5 +88,51 @@ public class NodePage implements HtmlBean {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public String getBefore() {
+		if(this.before != null){
+			this.before = this.before.substring(this.before.lastIndexOf("/")+1).replace(".html","").trim();
+		}
+
+		if("".equals(this.before)){
+			return "0";
+		}
+		return this.before;
+	}
+
+	public void setBefore(String before) {
+		this.before = before;
+	}
+
+	public String getNext() {
+		if(this.next != null){
+			this.next = this.next.substring(this.next.lastIndexOf("/")+1).replace(".html","").trim();
+		}
+
+		if("".equals(this.next)){
+			return "0";
+		}
+		return this.next;
+	}
+
+	public void setNext(String next) {
+		this.next = next;
+	}
+
+	public String getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
+	}
+
+	public String getIntro() {
+		return intro;
+	}
+
+	public void setIntro(String intro) {
+		this.intro = intro;
 	}
 }

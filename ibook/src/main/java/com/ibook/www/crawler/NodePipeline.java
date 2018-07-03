@@ -2,6 +2,7 @@ package com.ibook.www.crawler;
 
 import com.geccocrawler.gecco.pipeline.Pipeline;
 import com.ibook.www.Service.NodeService;
+import com.ibook.www.model.Content;
 import com.ibook.www.model.Node;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,12 @@ public class NodePipeline implements Pipeline<NodePage> {
 		Node node = new Node(bean.getId(), bean.getBookId(), bean.getContent());
 		node.setName(bean.getName());
 		node.setCount(Integer.parseInt(bean.getCount() == null?"0":bean.getCount()));
+		node.setBefore(bean.getBefore());
+		node.setAfter(bean.getNext());
+		node.setKeyWords(bean.getKeywords());
+		node.setIntro(bean.getIntro());
 		nodeService.save(node);
+
+		nodeService.saveContent(new Content(bean.getId(),bean.getContent()));
 	}
 }

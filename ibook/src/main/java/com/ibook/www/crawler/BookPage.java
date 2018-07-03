@@ -4,8 +4,6 @@ import com.geccocrawler.gecco.annotation.*;
 import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.spider.HtmlBean;
 
-import java.util.List;
-
 /**
  * @Description :
  * @FileName: BigPic.java
@@ -13,7 +11,7 @@ import java.util.List;
  * @Data : 2016年3月29日 下午3:59:19
  * @Version:V1.00
  */
-@Gecco(matchUrl = "https://www.miaobige.com/read/{id}/{page}/", pipelines = { "consolePipeline", "bookPipeline" })
+@Gecco(matchUrl = "https://www.miaobige.com/book/{id}/{channelId}_{classifyId}",timeout = 10000, pipelines = { "consolePipeline", "bookPipeline" })
 public class BookPage implements HtmlBean {
 
 	private static final long serialVersionUID = 1L;
@@ -21,30 +19,36 @@ public class BookPage implements HtmlBean {
 	@RequestParameter
 	private long id;
 
+	@RequestParameter
+	private long channelId;
+
+	@RequestParameter
+	private long classifyId;
+
 	@Html
-	@HtmlField(cssPath = "#smallcons > h1")
+	@HtmlField(cssPath = ".booktitle > h1")
 	private String name;
 
 	@Html
-	@HtmlField(cssPath = "#smallcons > span > a")
-	@RequestParameter
+	@HtmlField(cssPath = "#author > a")
 	private String author;
+
+	@Html
+	@HtmlField(cssPath = ".count > ul > li:eq(10) > span")
+	private String wcount;
+
+	@Html
+	@HtmlField(cssPath = "#bookintro")
+	private String intro;
+
+	@Image
+	@HtmlField(cssPath = "#bookimg")
+	private Picture img;
+
+	@Href
+	@HtmlField(cssPath = ".newrap > strong > a")
+	private String url;
 	
-	@Href
-	@HtmlField(cssPath="#readerlists > ul > li > a")
-	private List<String> nodeList;
-
-	@Href
-	@HtmlField(cssPath=".pages > a")
-	private List<String> pageList;
-
-	public List<String> getPageList() {
-		return pageList;
-	}
-
-	public void setPageList(List<String> pageList) {
-		this.pageList = pageList;
-	}
 
 	public HttpRequest getRequest() {
 		return request;
@@ -82,11 +86,51 @@ public class BookPage implements HtmlBean {
 		this.author = author;
 	}
 
-	public List<String> getNodeList() {
-		return nodeList;
+	public String getWcount() {
+		return wcount;
 	}
 
-	public void setNodeList(List<String> nodeList) {
-		this.nodeList = nodeList;
+	public void setWcount(String wcount) {
+		this.wcount = wcount;
+	}
+
+	public String getIntro() {
+		return intro;
+	}
+
+	public void setIntro(String intro) {
+		this.intro = intro;
+	}
+
+	public Picture getImg() {
+		return img;
+	}
+
+	public void setImg(Picture img) {
+		this.img = img;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public long getChannelId() {
+		return channelId;
+	}
+
+	public void setChannelId(long channelId) {
+		this.channelId = channelId;
+	}
+
+	public long getClassifyId() {
+		return classifyId;
+	}
+
+	public void setClassifyId(long classifyId) {
+		this.classifyId = classifyId;
 	}
 }

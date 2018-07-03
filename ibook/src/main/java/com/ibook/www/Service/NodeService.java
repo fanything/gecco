@@ -1,6 +1,7 @@
 package com.ibook.www.Service;
 
 import com.ibook.www.mapper.NodeMapper;
+import com.ibook.www.model.Content;
 import com.ibook.www.model.Node;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,5 +26,12 @@ public class NodeService {
         }
         node.setCreateTime(new Date());
         return nodeMapper.insert(node);
+    }
+
+    public int saveContent(Content node){
+        if(node == null){
+            return -1;
+        }
+        return nodeMapper.insertContent(node);
     }
 }

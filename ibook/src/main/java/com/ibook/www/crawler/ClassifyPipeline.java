@@ -1,6 +1,8 @@
 package com.ibook.www.crawler;
 
 import com.geccocrawler.gecco.pipeline.Pipeline;
+import com.geccocrawler.gecco.request.HttpRequest;
+import com.geccocrawler.gecco.scheduler.SchedulerContext;
 import com.ibook.www.Service.ClassifyService;
 import com.ibook.www.model.Classify;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +39,9 @@ public class ClassifyPipeline implements Pipeline<ClassifyPage> {
 				continue;
 			}
 			classifyService.save(new Classify(Long.parseLong(id),channelId,name,href));
+			String newHref = href.substring(0,offet+3) +"3"+href.substring(offet+4);
+			HttpRequest sub = bean.getRequest().subRequest(newHref);
+			SchedulerContext.into(sub);
 		}
 	}
 }

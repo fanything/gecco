@@ -13,7 +13,7 @@ import java.util.List;
  * @Data : 2016年3月29日 下午3:59:19
  * @Version:V1.00
  */
-@Gecco(matchUrl = "https://www.miaobige.com/shuku/{ids}", pipelines = { "consolePipeline", "classifyPipeline" })
+@Gecco(matchUrl = "https://www.miaobige.com/shuku/{ids}",timeout = 10000, pipelines = { "consolePipeline", "classifyPipeline" })
 public class ClassifyPage implements HtmlBean {
 
 	private static final long serialVersionUID = 1L;

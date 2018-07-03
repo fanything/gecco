@@ -6,20 +6,28 @@
     <id column="id" property="id"/>
     <id column="book_id" property="bookId"/>
     <result column="name" property="name"/>
-    <result column="content" property="content"/>
     <result column="wcount" property="count"  />
+    <result column="before_id" property="before"  />
+    <result column="after_id" property="after"  />
+    <result column="keywords" property="keyWords"  />
+    <result column="intro" property="intro"  />
     <result column="create_time" property="createTime"/>
   </resultMap>
 
   <sql id="Base_Column_List" >
-    id, name, content, wcount, create_time
+    id, name, wcount, create_time
   </sql>
 
   <insert id="insert" parameterType="com.ibook.www.model.Node" >
     <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into n_node(id,name,content,book_id,wcount,create_time)
-    values (#{id},#{name},#{content},#{bookId},#{count},#{createTime})
+    insert into n_node(id,name,book_id,wcount,before_id,after_id,keywords,intro,create_time)
+    values (#{id},#{name},#{bookId},#{count},#{before},#{after},#{keyWords},#{intro},#{createTime})
+  </insert>
+
+  <insert id="insertContent" parameterType="com.ibook.www.model.Content" >
+    insert into n_content(nid,content)
+    values (#{nid},#{content})
   </insert>
 </mapper>

@@ -23,7 +23,7 @@ public class CrawlerMain implements ApplicationContextAware,InitializingBean {
 		GeccoEngine.create()
 			.classpath("com.ibook.www.crawler")
 			.pipelineFactory(springPipelineFactory)
-			.interval(100)
+			.interval(200).thread(4)
 			.start(start)
 			.run();
 	}

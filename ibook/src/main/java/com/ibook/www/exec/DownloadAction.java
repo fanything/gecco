@@ -31,7 +31,7 @@ public class DownloadAction extends Action {
 	public DownloadAction(ActionQueue queue, String url, String localPath) {
 		super(queue);
 		this.url = url;
-		this.localPath = localPath + System.currentTimeMillis() + ".jpg";
+		this.localPath = localPath;
 	}
 
 	@Override

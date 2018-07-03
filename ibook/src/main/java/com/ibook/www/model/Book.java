@@ -16,7 +16,20 @@ public class Book implements Serializable {
 
     private String author;
 
+    private String img;
+
+    private String intro;
+
+    private long classifyId;
+
+    private long channelId;
+    private long wcount;
+
     private Date createTime;
+
+    private int width;
+
+    private int height;
 
     public Book() {
     }
@@ -57,5 +70,61 @@ public class Book implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public long getClassifyId() {
+        return classifyId;
+    }
+
+    public void setClassifyId(long classifyId) {
+        this.classifyId = classifyId;
+    }
+
+    public long getChannelId() {
+        return channelId;
+    }
+
+    public void setChannelId(long channelId) {
+        this.channelId = channelId;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public String getIntro() {
+        return intro;
+    }
+
+    public void setIntro(String intro) {
+        this.intro = intro;
+    }
+
+    public long getWcount() {
+        return wcount;
+    }
+
+    public void setWcount(long wcount) {
+        this.wcount = wcount;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 }

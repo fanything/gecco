@@ -1,17 +1,15 @@
 package com.road.crawler.meizitu.crawler;
 
-import java.util.Date;
-
-import javax.annotation.Resource;
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
-
 import com.geccocrawler.gecco.pipeline.Pipeline;
 import com.road.crawler.meizitu.exec.DownloadAction;
 import com.road.crawler.meizitu.exec.Executors;
 import com.road.crawler.meizitu.model.Picture;
 import com.road.crawler.meizitu.service.PictureService;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.Date;
 
 @Service
 public class BigPicPipeline implements Pipeline<BigPic> {

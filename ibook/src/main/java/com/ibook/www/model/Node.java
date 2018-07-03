@@ -22,6 +22,14 @@ public class Node implements Serializable {
 
     private int count;
 
+    private String before;
+
+    private String after;
+
+    private String keyWords;
+
+    private String intro;
+
     public Node() {
     }
 
@@ -77,5 +85,37 @@ public class Node implements Serializable {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public String getBefore() {
+        return before;
+    }
+
+    public void setBefore(String before) {
+        this.before = before;
+    }
+
+    public String getAfter() {
+        return after;
+    }
+
+    public void setAfter(String after) {
+        this.after = after;
+    }
+
+    public String getKeyWords() {
+        return keyWords;
+    }
+
+    public void setKeyWords(String keyWords) {
+        this.keyWords = keyWords;
+    }
+
+    public String getIntro() {
+        return intro;
+    }
+
+    public void setIntro(String intro) {
+        this.intro = intro;
     }
 }

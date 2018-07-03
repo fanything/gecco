@@ -1,5 +1,6 @@
 package com.ibook.www.mapper;
 
+import com.ibook.www.model.Content;
 import com.ibook.www.model.Node;
 
 /**
@@ -10,5 +11,5 @@ import com.ibook.www.model.Node;
 public interface NodeMapper {
 
     int insert(Node node);
-
+    int insertContent(Content node);
 }
